@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Quiz from './Quiz';
 import Modal from './Modal';
 import Results from './Results';
+import Player from './Player.js';
 import shuffleQuestions from '../helpers/shuffleQuestions';
 import QUESTION_DATA from '../data/toeic-data';
 
@@ -163,6 +164,9 @@ class QuizApp extends Component {
       );
     } else return (
       <Fragment>
+        <div className="App">
+          <Player source={["https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3", "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"]} />
+        </div>
         <Quiz
           step={step}
           questions={questions}
