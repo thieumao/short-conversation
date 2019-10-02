@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import QuestionList from './QuestionList';
+import Player from './Player.js';
 
 const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handleEnterPress }) => {
   return (
@@ -24,6 +25,9 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handl
       </header>
 
       <div className="questions">
+        <div className="player">
+          <Player source={["https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3", "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"]} />
+        </div>
         <QuestionList
           index={step}
           questions={questions}
