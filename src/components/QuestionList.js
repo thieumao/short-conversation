@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Question from './Question';
 
 const QuestionList = ({ index, questions, handleAnswerClick, handleEnterPress }) => {
-  console.log("motmao");
   return (
     <ul className="question-list">
       <Question

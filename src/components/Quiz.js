@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import QuestionList from './QuestionList';
 import Player from './Player.js';
 
-const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handleEnterPress }) => {
-  console.log('haiu');
-  console.log(questions[step - 1].audio);
-  console.log(questions[step - 1].question);
+const Quiz = ({ isShownTapescript, step, questions, totalQuestions, score, handleTapescript, handleScore, handleAgain, handleNext, handleAnswerClick, handleEnterPress }) => {
   return (
     <div className="wrapper">
       <header>
@@ -31,6 +28,11 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handl
         <div className="player">
           <Player source={questions[step - 1].audio} />
         </div>
+        {isShownTapescript && <div>Thieu Mao</div>}
+        <button onClick={handleTapescript}>Tapescript</button>
+        <button onClick={handleScore}>Score</button>
+        <button onClick={handleAgain}>Again</button>
+        <button onClick={handleNext}>Next</button>
         <QuestionList
           index={step}
           questions={questions}

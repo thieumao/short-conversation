@@ -27,6 +27,7 @@ class QuizApp extends Component {
           tries: 0
         }
       }),
+      isShownTapescript: false,
       step: 1,
       score: 0,
       modal: {
@@ -148,11 +149,27 @@ class QuizApp extends Component {
     });
   };
 
+  handleTapescript = () => {
+    const isShownTapescript = !this.state.isShownTapescript;
+    this.setState({
+      isShownTapescript,
+    });
+  };
+
+  handleScore = () => {
+    console.log('handleScore');
+  };
+
+  handleAgain = () => {
+    console.log('handleAgain');
+  };
+
+  handleNext = () => {
+    console.log('handleNext');
+  };
+
   render() {
-    const { step, questions, userAnswers, totalQuestions, score, modal } = this.state;
-    console.log('thieumao');
-    console.log(userAnswers);
-    console.log(questions);
+    const { isShownTapescript, step, questions, userAnswers, totalQuestions, score, modal } = this.state;
     if (step >= totalQuestions + 1) {
       return (
         <Results
@@ -164,10 +181,15 @@ class QuizApp extends Component {
     } else return (
       <Fragment>
         <Quiz
+          isShownTapescript={isShownTapescript}
           step={step}
           questions={questions}
           totalQuestions={totalQuestions}
           score={score}
+          handleTapescript={this.handleTapescript}
+          handleScore={this.handleScore}
+          handleAgain={this.handleAgain}
+          handleNext={this.handleNext}
           handleAnswerClick={this.handleAnswerClick}
           handleEnterPress={this.handleEnterPress}
         />
