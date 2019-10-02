@@ -8,7 +8,11 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handl
       <header>
         <div className="question-count">
           <h2>Question</h2>
-          <div className="question-number">{step}</div>
+          <div>
+            <div className="question-number">{step}</div>
+            <div className="question-number">{step+1}</div>
+            <div className="question-number">{step+2}</div>
+          </div>
           <div className="description">of <span>{totalQuestions}</span></div>
         </div>
         <h1>TOEIC Quiz</h1>
@@ -21,6 +25,19 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handl
 
       <div className="questions">
         <QuestionList
+          index={step}
+          questions={questions}
+          handleAnswerClick={handleAnswerClick}
+          handleEnterPress={handleEnterPress}
+        />
+        <QuestionList
+          index={step+1}
+          questions={questions}
+          handleAnswerClick={handleAnswerClick}
+          handleEnterPress={handleEnterPress}
+        />
+        <QuestionList
+          index={step+2}
           questions={questions}
           handleAnswerClick={handleAnswerClick}
           handleEnterPress={handleEnterPress}

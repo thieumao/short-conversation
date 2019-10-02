@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Answer from './Answer';
 
-const Question = ({ question, answers, handleAnswerClick, handleEnterPress }) => {
+const Question = ({ index, question, answers, handleAnswerClick, handleEnterPress }) => {
   return (
     <li className="question">
       <h2 className="question-title" tabIndex="0">
+        {index}
+        {" - "}
         {question}
       </h2>
       <ul className="question-answers" tabIndex="-1">

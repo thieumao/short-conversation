@@ -2,20 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Question from './Question';
 
-const QuestionList = ({ questions, handleAnswerClick, handleEnterPress }) => {
+const QuestionList = ({ index, questions, handleAnswerClick, handleEnterPress }) => {
+  console.log("motmao");
   return (
     <ul className="question-list">
-      {questions.map(question => {
-        return (
-          <Question
-            key={question.question.props.children.toString()}
-            question={question.question}
-            answers={question.answers}
-            handleAnswerClick={handleAnswerClick}
-            handleEnterPress={handleEnterPress}
-          />
-        );
-      })}
+      <Question
+        key={questions[index].question.props.children.toString()}
+        index={index}
+        question={questions[index].question}
+        answers={questions[index].answers}
+        handleAnswerClick={handleAnswerClick}
+        handleEnterPress={handleEnterPress}
+      />
     </ul>
   );
 }

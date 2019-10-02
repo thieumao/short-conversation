@@ -125,7 +125,7 @@ class QuizApp extends Component {
     const tries = userAnswers[currentStep].tries;
 
     this.setState({
-      step: step + 1,
+      step: step + 3,
       score: this.updateScore(tries, score),
       questions: restOfQuestions,
       modal: {
