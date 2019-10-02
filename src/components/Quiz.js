@@ -4,6 +4,9 @@ import QuestionList from './QuestionList';
 import Player from './Player.js';
 
 const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handleEnterPress }) => {
+  console.log('haiu');
+  console.log(questions[step - 1].audio);
+  console.log(questions[step - 1].question);
   return (
     <div className="wrapper">
       <header>
@@ -26,7 +29,7 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handl
 
       <div className="questions">
         <div className="player">
-          <Player source={["https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3", "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"]} />
+          <Player source={questions[step - 1].audio} />
         </div>
         <QuestionList
           index={step}

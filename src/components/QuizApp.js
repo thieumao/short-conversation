@@ -17,7 +17,7 @@ class QuizApp extends Component {
 
   getInitialState(totalQuestions) {
     totalQuestions = Math.min(totalQuestions, QUESTION_DATA.length);
-    const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(0, totalQuestions);
+    const QUESTIONS = QUESTION_DATA.slice(0, totalQuestions);
 
     return {
       questions: QUESTIONS,

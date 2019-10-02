@@ -2,6 +2,7 @@ import React from 'react';
 
 const QUESTION_DATA = [
   {
+    audio: "https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3",
     question: <span>Ms. Durkin asked for volunteers to help ..... with the employee fitness program.</span>,
     answers: [
       <span>she</span>,
@@ -32,6 +33,7 @@ const QUESTION_DATA = [
     correct: 0
   },
   {
+    audio: "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3",
     question: <span>Ms. Pham requested a refund ..... the coffeemaker she received was damaged.</span>,
     answers: [
       <span>despite</span>,
@@ -42,6 +44,7 @@ const QUESTION_DATA = [
     correct: 3
   },
   {
+    audio: "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3",
     question: <span>Information ..... the artwork in the lobby is available at the reception desk.</span>,
     answers: [
       <span>across</span>,
@@ -52,6 +55,7 @@ const QUESTION_DATA = [
     correct: 1
   },
   {
+    audio: "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3",
     question: <span>With the Gema XTI binoculars, users can ..... see objects that are more than 100 meters away.</span>,
     answers: [
       <span>ease</span>,
