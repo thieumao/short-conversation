@@ -95,10 +95,10 @@ class Player extends Component {
       <div className="player">
         <audio id="player" onEnded={this.togglePlaybackIcon} src={this.state.track}></audio>
         <button id="play" onClick={this.playClick}><i id="playIcon" className="fas fa-play"></i></button>
-        <button id="forward" onClick={this.forwardClick}><i className="fas fa-forward"></i></button>
+        {/* <button id="forward" onClick={this.forwardClick}><i className="fas fa-forward"></i></button>
         <button id="backword" onClick={this.backwordClick}><i className="fas fa-backward"></i></button>
         <button id="next" onClick={this.nextTrackClick}><i className="fas fa-angle-double-right"></i></button>
-        <button id="prev" onClick={this.previousTrackClick}><i className="fas fa-angle-double-left"></i></button>
+        <button id="prev" onClick={this.previousTrackClick}><i className="fas fa-angle-double-left"></i></button> */}
       </div>
     );
   }
