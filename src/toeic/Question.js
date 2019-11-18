@@ -1,0 +1,27 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class Question extends Component {
+
+  render() {
+    return(
+    <div className="container">
+        <b>Question {this.props.number}: </b>
+        <label>{this.props.question}</label>
+        <ol type="A">
+            {this.props.answers.map((answer, _) => {
+                return(<li>{answer}</li>)
+            })}
+        </ol>
+    </div>
+    )
+  }
+}
+
+Question.propTypes = {
+    number: PropTypes.number.isRequired,
+    question: PropTypes.string.isRequired,
+    answers: PropTypes.array.isRequired,
+};
+
+export default Question;
