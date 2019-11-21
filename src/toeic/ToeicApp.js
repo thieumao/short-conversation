@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Question from './Question';
 import QUESTION_DATA from '../data/data';
 import './ToeicApp.css';
+import Player from '../components/Player.js';
 
 class ToeicApp extends Component {
   state={
@@ -16,6 +17,7 @@ class ToeicApp extends Component {
     return(
     <div className="container">
       <div className="player">
+        <Player source={conversation.audio}/>
         {conversation.audio}
       </div>
       {!this.state.isShownTapescript ? null :
