@@ -9,6 +9,8 @@ class ToeicApp extends Component {
     questions: QUESTION_DATA,
     isShownTapescript: false,
     index: 0,
+    score: 0,
+    isShownScore: false,
   }
 
   render() {
@@ -58,6 +60,11 @@ class ToeicApp extends Component {
           correct={conversation.questions[2].correct}
         />
       </div>
+      { !this.state.isShownScore ? null :
+        <div className="score">
+          <label>You have answered {this.state.score} out of 3 questions correctly!</label>
+        </div>
+      }
       <div className="buttons">
         <button onClick={() => this.handleTapescript()}>Tapescript</button>
         <button onClick={() => this.handleScore()}>Score</button>
@@ -83,13 +90,21 @@ class ToeicApp extends Component {
     this.question1.showCorrectAnswer();
     this.question2.showCorrectAnswer();
     this.question3.showCorrectAnswer();
-    console.log(score);
+    this.setState({ 
+      isShownScore: true,
+      score
+    });
   };
 
   handleAgain = () => {
     this.question1.reset();
     this.question2.reset();
     this.question3.reset();
+
+    this.setState({
+      score: 0,
+      isShownScore: false
+    });
   };
 
   handleNext = () => {
