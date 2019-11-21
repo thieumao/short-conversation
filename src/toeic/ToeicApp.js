@@ -11,6 +11,8 @@ class ToeicApp extends Component {
     index: 0,
     score: 0,
     isShownScore: false,
+    isShownNextButton: true,
+    isShownBackButton: false
   }
 
   render() {
@@ -72,7 +74,12 @@ class ToeicApp extends Component {
         <button onClick={() => this.handleTapescript()}>Tapescript</button>
         <button onClick={() => this.handleScore()}>Score</button>
         <button onClick={() => this.handleAgain()}>Again</button>
-        <button onClick={() => this.handleNext()}>Next</button>
+        { !this.state.isShownNextButton ? null :
+          <button onClick={() => this.handleNext()}>Next</button>
+        }
+        { !this.state.isShownBackButton ? null :
+          <button onClick={() => this.handleBack()}>Back</button>
+        }
       </div>
     </div>
     )
@@ -111,7 +118,43 @@ class ToeicApp extends Component {
   };
 
   handleNext = () => {
-    console.log('handleNext');
+    const lastIndex = this.state.questions.length - 1;
+    const currentIndex = this.state.index;
+    if (currentIndex >= lastIndex) {
+      return;
+    }
+    const nextIndex = currentIndex + 1;
+    const isShownNextButton = nextIndex < lastIndex;
+    const isShownBackButton = nextIndex > 0;
+    this.setState({ 
+      isShownTapescript: false,
+      index: nextIndex,
+      score: 0,
+      isShownScore: false,
+      isShownNextButton,
+      isShownBackButton
+    });
+    this.handleAgain()
+  };
+
+  handleBack = () => {
+    const lastIndex = this.state.questions.length - 1;
+    const currentIndex = this.state.index;
+    if (currentIndex <= 0) {
+      return;
+    }
+    const previousIndex = currentIndex - 1;
+    const isShownNextButton = previousIndex < lastIndex;
+    const isShownBackButton = previousIndex > 0;
+    this.setState({ 
+      isShownTapescript: false,
+      index: previousIndex,
+      score: 0,
+      isShownScore: false,
+      isShownNextButton,
+      isShownBackButton
+    });
+    this.handleAgain()
   };
 }
 
