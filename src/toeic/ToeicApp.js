@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Question from './Question';
 import QUESTION_DATA from '../data/data';
 import './ToeicApp.css';
-import Player from '../components/Player.js';
+import ReactAudioPlayer from 'react-audio-player';
 
 class ToeicApp extends Component {
   state={
@@ -19,8 +19,11 @@ class ToeicApp extends Component {
     return(
     <div className="container">
       <div className="player">
-        <Player source={conversation.audio}/>
         {conversation.audio}
+        <ReactAudioPlayer
+          src={conversation.audio}
+          controls
+        />
       </div>
       {!this.state.isShownTapescript ? null :
         <div className="tapescript">
