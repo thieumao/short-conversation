@@ -21,7 +21,6 @@ class ToeicApp extends Component {
     return(
     <div className="container">
       <div className="player">
-        {conversation.audio}
         <ReactAudioPlayer
           src={conversation.audio}
           controls
@@ -68,6 +67,8 @@ class ToeicApp extends Component {
       { !this.state.isShownScore ? null :
         <div className="score">
           <label>You have answered {this.state.score} out of 3 questions correctly!</label>
+          <br />
+          <br />
         </div>
       }
       <div className="buttons">
