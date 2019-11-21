@@ -26,11 +26,34 @@ class ToeicApp extends Component {
         </div>
       }
       <div className="questions">
-        {conversation.questions.map((item, index) => {
+        {/* {conversation.questions.map((item, index) => {
           return(
-            <Question key={index.toString()} number={index+1} question={item.question} answers={item.answers} />
+            <Question
+              ref={(c) => { this.question = c; }}
+              key={index.toString()}
+              number={index+1}
+              question={item.question} answers={item.answers}
+            />
           )
-        })}
+        })} */}
+        <Question
+          ref={(c) => { this.question1 = c; }}
+          number={1}
+          question={conversation.questions[0].question} 
+          answers={conversation.questions[0].answers}
+        />
+        <Question
+          ref={(c) => { this.question2 = c; }}
+          number={2}
+          question={conversation.questions[1].question} 
+          answers={conversation.questions[1].answers}
+        />
+        <Question
+          ref={(c) => { this.question3 = c; }}
+          number={3}
+          question={conversation.questions[2].question} 
+          answers={conversation.questions[2].answers}
+        />
       </div>
       <div className="buttons">
         <button onClick={() => this.handleTapescript()}>Tapescript</button>
@@ -43,11 +66,10 @@ class ToeicApp extends Component {
   }
 
   handleTapescript = () => {
-    const isShown = !this.state.isShownTapescript
+    const isShown = !this.state.isShownTapescript;
     this.setState({
       isShownTapescript: isShown
-    })
-    console.log('handleTapescript');
+    });
   };
 
   handleScore = () => {
@@ -55,7 +77,9 @@ class ToeicApp extends Component {
   };
 
   handleAgain = () => {
-    console.log('handleAgain');
+    this.question1.reset();
+    this.question2.reset();
+    this.question3.reset();
   };
 
   handleNext = () => {

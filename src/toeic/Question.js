@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 class Question extends Component {
 
   state={
-    index: 0,
+    index: -1,
   }
 
   handleAnswerClick = (index) => {
     this.setState({ index });
+  }
+
+  reset = () => {
+    this.setState({ index: -1 });
   }
 
   render() {
