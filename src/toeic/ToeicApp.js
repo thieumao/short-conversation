@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Question from './Question';
 import QUESTION_DATA from '../data/data';
+import './ToeicApp.css';
 
 class ToeicApp extends Component {
   state={
@@ -25,15 +26,15 @@ class ToeicApp extends Component {
       <div className="questions">
         {conversation.questions.map((item, index) => {
           return(
-            <Question number={index+1} question={item.question} answers={item.answers} />
+            <Question key={index.toString()} number={index+1} question={item.question} answers={item.answers} />
           )
         })}
       </div>
       <div className="buttons">
-        <button onClick={this.handleTapescript}>Tapescript</button>
-        <button onClick={this.handleScore}>Score</button>
-        <button onClick={this.handleAgain}>Again</button>
-        <button onClick={this.handleNext}>Next</button>
+        <button onClick={() => this.handleTapescript()}>Tapescript</button>
+        <button onClick={() => this.handleScore()}>Score</button>
+        <button onClick={() => this.handleAgain()}>Again</button>
+        <button onClick={() => this.handleNext()}>Next</button>
       </div>
     </div>
     )
