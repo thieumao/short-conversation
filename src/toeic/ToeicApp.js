@@ -41,18 +41,21 @@ class ToeicApp extends Component {
           number={1}
           question={conversation.questions[0].question} 
           answers={conversation.questions[0].answers}
+          correct={conversation.questions[0].correct}
         />
         <Question
           ref={(c) => { this.question2 = c; }}
           number={2}
           question={conversation.questions[1].question} 
           answers={conversation.questions[1].answers}
+          correct={conversation.questions[1].correct}
         />
         <Question
           ref={(c) => { this.question3 = c; }}
           number={3}
           question={conversation.questions[2].question} 
           answers={conversation.questions[2].answers}
+          correct={conversation.questions[2].correct}
         />
       </div>
       <div className="buttons">
@@ -73,7 +76,14 @@ class ToeicApp extends Component {
   };
 
   handleScore = () => {
-    console.log('handleScore');
+    let score = 0;
+    if (this.question1.state.isCorrect) score += 1;
+    if (this.question2.state.isCorrect) score += 1;
+    if (this.question3.state.isCorrect) score += 1;
+    this.question1.showCorrectAnswer();
+    this.question2.showCorrectAnswer();
+    this.question3.showCorrectAnswer();
+    console.log(score);
   };
 
   handleAgain = () => {

@@ -5,14 +5,30 @@ class Question extends Component {
 
   state={
     index: -1,
+    isCorrect: false,
+    isShownCorrect: false,
   }
 
-  handleAnswerClick = (index) => {
-    this.setState({ index });
+  handleAnswerClick = (i) => {
+    const isCorrect = this.props.correct === i;
+    this.setState({ 
+      index: i,
+      isCorrect: isCorrect
+    });
   }
 
   reset = () => {
-    this.setState({ index: -1 });
+    this.setState({
+      index: -1,
+      isCorrect: false,
+      isShownCorrect: false
+    });
+  }
+
+  showCorrectAnswer = () => {
+    this.setState({
+      isShownCorrect: true
+    });
   }
 
   render() {
@@ -22,7 +38,10 @@ class Question extends Component {
         <label>{this.props.question}</label>
         <ol type="A">
             {this.props.answers.map((answer, index) => {
-              const style = this.state.index === index ? {color: 'red'} : {}
+              let style = this.state.index === index ? {color: 'red'} : {}
+              if (this.state.isShownCorrect && this.state.index === index && this.state.isCorrect) {
+                style = {color:'blue'}
+              }
               return(
                 <li
                   key={index.toString()}
@@ -39,9 +58,10 @@ class Question extends Component {
 }
 
 Question.propTypes = {
-    number: PropTypes.number.isRequired,
-    question: PropTypes.element.isRequired,
-    answers: PropTypes.array.isRequired,
+  correct: PropTypes.number.isRequired,
+  number: PropTypes.number.isRequired,
+  question: PropTypes.element.isRequired,
+  answers: PropTypes.array.isRequired,
 };
 
 export default Question;
