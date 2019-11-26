@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Question from './Question';
 import QUESTION_DATA from '../data/data';
-import './ToeicApp.css';
 import ReactAudioPlayer from 'react-audio-player';
 
 class ToeicApp extends Component {
@@ -13,6 +12,22 @@ class ToeicApp extends Component {
     isShownScore: false,
     isShownNextButton: true,
     isShownBackButton: false
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:8888/")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            questions: result
+          });
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
   }
 
   render() {
@@ -28,31 +43,21 @@ class ToeicApp extends Component {
       </div>
       {!this.state.isShownTapescript ? null :
         <div className="tapescript">
-          {conversation.tapescript}
+          <pre>{conversation.tapescript}</pre>
         </div>
       }
       <div className="questions">
-        {/* {conversation.questions.map((item, index) => {
-          return(
-            <Question
-              ref={(c) => { this.question = c; }}
-              key={index.toString()}
-              number={index+1}
-              question={item.question} answers={item.answers}
-            />
-          )
-        })} */}
         <Question
           ref={(c) => { this.question1 = c; }}
           number={1}
-          question={conversation.questions[0].question} 
+          question={conversation.questions[0].question}
           answers={conversation.questions[0].answers}
           correct={conversation.questions[0].correct}
         />
         <Question
           ref={(c) => { this.question2 = c; }}
           number={2}
-          question={conversation.questions[1].question} 
+          question={conversation.questions[1].question.toString()} 
           answers={conversation.questions[1].answers}
           correct={conversation.questions[1].correct}
         />

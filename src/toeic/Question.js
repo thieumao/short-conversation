@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class Question extends Component {
 
@@ -57,11 +56,11 @@ class Question extends Component {
   }
 }
 
-Question.propTypes = {
-  correct: PropTypes.number.isRequired,
-  number: PropTypes.number.isRequired,
-  question: PropTypes.element.isRequired,
-  answers: PropTypes.array.isRequired,
-};
+// Question.propTypes = {
+//   correct: PropTypes.number.isRequired,
+//   number: PropTypes.number.isRequired,
+//   question: PropTypes.string.isRequired,
+//   answers: PropTypes.array.isRequired,
+// };
 
 export default Question;
